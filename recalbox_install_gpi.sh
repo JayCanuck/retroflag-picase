@@ -1,7 +1,7 @@
 #!/bin/bash
 #Step 1 make /boot writable---------------------------------
 sleep 2s
-filewebsite="https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master"
+filewebsite="https://raw.githubusercontent.com/JayCanuck/retroflag-picase/master"
 
 mount -o remount, rw /boot
 mount -o remount, rw /

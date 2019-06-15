@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from gpiozero import Button, LED
+from subprocess import run
 import os 
 from signal import pause
 
@@ -11,7 +12,9 @@ power.on()
 
 #functions that handle button events
 def when_pressed():
-  os.system("sudo killall emulationstation && sleep 5s && sudo shutdown -h now")
+  if run(["pidof", "retroarch"], capture_output=True, check=False).returncode == 0:
+    os.system("echo -n \"QUIT\" | nc -u -w1 127.0.0.1 55355")
+  os.system("touch /tmp/es-shutdown && chown pi /tmp/es-shutdown && killall emulationstation")
   
 btn = Button(powerPin, hold_time=hold)
 btn.when_pressed = when_pressed
