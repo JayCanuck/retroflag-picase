@@ -1,7 +1,7 @@
 ## Forked from https://github.com/RetroFlag/retroflag-picase
 
-Shutdown will save game metadata (not a savestate, just active memory) of any active game and then shutdown the system.
-Restart will reset a game itself if one is running. If the system is on EmulationStation, then restart button will restart the whole Pi system.
+* Shutdown will save game metadata (not a savestate, just active memory) of any active game and then shutdown the system.
+* Restart will reset a game itself if one is running. If the system is on EmulationStation, then restart button will restart the whole Pi system.
 
 This fork is similar in ideology to https://github.com/crcerror/retroflag-picase The main difference between this and crcerror's implemention is how things are done.  This fork is meant to to minimalist, relying on RetroArch APIs to exit/reset games and EmulationStation itself to handle the system shutdown/restart (just like if you manually used EmulationStation to initiate a shutdown/restart). Only supports RetroPie at this point.
 
