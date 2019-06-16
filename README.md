@@ -5,9 +5,9 @@
 
 This fork is similar in ideology to https://github.com/crcerror/retroflag-picase The main difference between this and crcerror's implemention is how things are done.  This fork is meant to to minimalist, relying on RetroArch APIs to exit/reset games and EmulationStation itself to handle the system shutdown/restart (just like if you manually used EmulationStation to initiate a shutdown/restart). Only supports RetroPie at this point.
 
-The RetroArch features naturally only work within RetroArch-based emulators/cores and require the following settings in your RetroArch config (eg. `/opt/retropie/configs/all/retroarch.cfg`):
+The RetroArch features naturally only work within RetroArch-based emulators/cores and the installation script will add the following settings in your global RetroArch config (`/opt/retropie/configs/all/retroarch.cfg`):
 ```
-network_cmd_enable = false
+network_cmd_enable = true
 network_cmd_port = 55355
 ```
 

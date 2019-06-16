@@ -49,6 +49,15 @@ if grep -q "sudo python3 \/opt\/RetroFlag\/SafeShutdown.py \&" "$RC";
 fi
 #-----------------------------------------------------------
 
+#Step 6.5) Enable RetroArch network command API-------------
+if [ -f /opt/retropie/configs/all/retroarch.cfg ] ; then
+	sed -i '/network_cmd_enable/d' /opt/retropie/configs/all/retroarch.cfg
+	sed -i '/network_cmd_port/d' /opt/retropie/configs/all/retroarch.cfg
+	echo "network_cmd_enable = true" >> /opt/retropie/configs/all/retroarch.cfg
+	echo "network_cmd_port = 55355" >> /opt/retropie/configs/all/retroarch.cfg
+fi
+#-----------------------------------------------------------
+
 #Step 7) Reboot to apply changes----------------------------
 echo "RetroFlag Pi Case installation done. Will now reboot after 3 seconds."
 sleep 3s
