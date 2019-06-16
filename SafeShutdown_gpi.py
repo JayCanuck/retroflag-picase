@@ -12,7 +12,7 @@ power.on()
 
 #functions that handle button events
 def when_pressed():
-  if run(["pidof", "retroarch"], capture_output=True, check=False).returncode == 0:
+  if run(["pidof", "retroarch"]).returncode == 0:
     os.system("echo -n \"QUIT\" | nc -u -w1 127.0.0.1 55355")
   os.system("touch /tmp/es-shutdown && chown pi /tmp/es-shutdown && killall emulationstation")
   

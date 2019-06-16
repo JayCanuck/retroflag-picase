@@ -18,7 +18,7 @@ power.on()
 def when_pressed():
   led.blink(.2,.2)
   # if RetroArch is active, attempt sending a QUIT command to exit the active game cleanly
-  if run(["pidof", "retroarch"], capture_output=True, check=False).returncode == 0:
+  if run(["pidof", "retroarch"]).returncode == 0:
     os.system("echo -n \"QUIT\" | nc -u -w1 127.0.0.1 55355")
   # use es-shutdown flag file to have EmulationStation perform a structured shutdown
   os.system("touch /tmp/es-shutdown && chown pi /tmp/es-shutdown && killall emulationstation")
@@ -26,7 +26,7 @@ def when_released():
   led.on()
 def reboot():
   # check if a RetroArch game is actively running
-  if run(["pidof", "retroarch"], capture_output=True, check=False).returncode == 0:
+  if run(["pidof", "retroarch"]).returncode == 0:
   	# if a game is running, send RESET command to reset the game itself
     os.system("echo -n \"RESET\" | nc -u -w1 127.0.0.1 55355")
   else:
